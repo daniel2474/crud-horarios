@@ -21,7 +21,8 @@ export const DashboardRoutes = () => {
         <Route path='/A3' element={<Salas club='Club Alpha 3'/>}/>
         <Route path='/SP' element={<Salas club='Sports Plaza'/>}/>
         <Route path='/CIM' element={<Salas club='CIMERA'/>}/>
-        <Route path="crearSala/:salaId" element={<EditarSalaPage />} />
+        <Route path="/editarSala/:salaId" element={<EditarSalaPage />} />
+        {/* <Route path="crearSala/:salaId" element={<EditarSalaPage />} /> */}
     </Routes>
     </>
   )

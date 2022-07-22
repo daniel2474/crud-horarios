@@ -1,9 +1,12 @@
+import { SortOptions } from "./ordenarArray";
+
 export const crearActividades =(array=[])=>{
     const options=[];
     array.forEach(item => {
         options.push({value:item.id,label:item.nombre+" - Cupo:"+item.max});
     });
-    return options;
+    const s = options.sort(SortOptions);
+    return s;   
 }
 
 export const crearTecnico =(array=[])=>{
@@ -11,7 +14,8 @@ export const crearTecnico =(array=[])=>{
     array.forEach(item => {
         options.push({value:item.id,label:item.nombre});
     });
-    return options;
+    const s = options.sort(SortOptions);
+    return s;
 }
 
 export const crearSalas =(array=[])=>{
@@ -19,5 +23,6 @@ export const crearSalas =(array=[])=>{
     array.forEach(item => {
         options.push({value:item.id,label:item.club.nombre+" "+item.nombre});
     });
-    return options;
+    const s = options.sort(SortOptions);
+    return s;
 }
