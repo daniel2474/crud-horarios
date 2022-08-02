@@ -63,3 +63,28 @@ export const createNewSala=async(data)=>{
         console.error(err);
     }
 }
+
+
+export const actualizarSala=async(data)=>{
+    try {
+        const resp = await axios.post('http://app.sportsplaza.mx/citas/actualizarSala',data,{
+            headers
+        });
+        return resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+}
+export const borrarSala=async(data)=>{
+    try {
+        console.log(data)
+        const resp = await axios.post('http://app.sportsplaza.mx/citas/deleteSala',data,{
+            headers
+        });
+        return resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+}

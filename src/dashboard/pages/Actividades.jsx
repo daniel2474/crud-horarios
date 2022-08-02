@@ -1,4 +1,6 @@
+import { MdOutlineDeleteOutline, MdOutlineModeEdit } from "react-icons/md";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 export const Actividades = () => {
@@ -8,7 +10,7 @@ export const Actividades = () => {
     <>
     <div className={collapsed?'principal-collapsed':'principal'}>
       <h1>Lista de Actividades</h1>
-      <button className="button">Crear Nueva Actividad</button>
+      <button className="button-principal">Crear Nueva Actividad</button>
       <div className="cards">
     {
       actividades.map(actividad=>(
@@ -19,8 +21,8 @@ export const Actividades = () => {
             <h4>{actividad.dificultad}</h4>
             <h4>Cupo: {actividad.max}</h4>            
             <h4>{actividad.paga===0?'Clase de cobro':'Clase sin cobro'}</h4>
-            <button className="button" >Editar</button>
-            <button  className="button-eliminar" >Eliminar</button>
+            <Link className="button"  to={"/editarActividad/"+actividad.id}><MdOutlineModeEdit/> </Link>
+            <button  className="button-eliminar" ><MdOutlineDeleteOutline/></button>
           </div>
         </div>
       ))

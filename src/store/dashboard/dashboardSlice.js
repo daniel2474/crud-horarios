@@ -31,6 +31,16 @@ export const dashboardSlice = createSlice({
         },
         addNewSala:(state,action)=>{
             state.salas.push(action.payload);
+        },
+        onUpdateSala:(state,{payload})=>{
+            state.salas=state.salas.map(sala=>{
+                if(sala.id===payload.id){
+                    return payload;
+                }
+                return sala;
+            })
+        },onDeleteSala:(state,action)=>{
+            state.salas=state.salas.filter(sala=>sala.id!==action.payload);
         }
         
     }
@@ -45,5 +55,7 @@ export const {
     savingNewHorario,
     savedNewHorario,
     setCollapsed,
-    addNewSala
+    addNewSala,
+    onUpdateSala,
+    onDeleteSala
  } = dashboardSlice.actions;
