@@ -64,7 +64,6 @@ export const createNewSala=async(data)=>{
     }
 }
 
-
 export const actualizarSala=async(data)=>{
     try {
         const resp = await axios.post('http://app.sportsplaza.mx/citas/actualizarSala',data,{
@@ -78,8 +77,43 @@ export const actualizarSala=async(data)=>{
 }
 export const borrarSala=async(data)=>{
     try {
-        console.log(data)
         const resp = await axios.post('http://app.sportsplaza.mx/citas/deleteSala',data,{
+            headers
+        });
+        return resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+}
+
+export const createNewTecnico=async(data)=>{
+    try {
+        const resp = await axios.post('http://app.sportsplaza.mx/citas/crearTecnico',data,{
+            headers
+        });
+        return resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+}
+
+export const actualizarTecnico=async(data)=>{
+    try {
+        const resp = await axios.put('http://app.sportsplaza.mx/citas/actualizarTecnico',data,{
+            headers
+        });
+        return resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+}
+
+export const borrarTecnico=async(data)=>{
+    try {
+        const resp = await axios.post('http://app.sportsplaza.mx/citas/deleteTecnico',data,{
             headers
         });
         return resp.data;

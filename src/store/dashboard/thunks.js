@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
-import { actualizarSala, borrarSala, createNewHorario, createNewSala, loadActividades, loadSalas, loadTecnicos } from "../../helpers/load";
-import { addNewSala, onDeleteSala, onUpdateSala, savedNewHorario, savingNewHorario, setActividades, setSalas, setTecnicos } from "./dashboardSlice";
+import { actualizarSala, actualizarTecnico, borrarSala, borrarTecnico, createNewHorario, createNewSala, createNewTecnico, loadActividades, loadSalas, loadTecnicos } from "../../helpers/load";
+import { addNewSala, addNewTecnico, onDeleteSala, onDeleteTecnico, onUpdateSala, onUpdateTecnico, savedNewHorario, savingNewHorario, setActividades, setSalas, setTecnicos } from "./dashboardSlice";
 
 
 export const startNewHorario=(data)=>{
@@ -96,6 +96,69 @@ export const eliminarSala=(req)=>{
         try{
             const json=await borrarSala(req);
             dispatch(onDeleteSala(req.id));
+            Swal.fire({
+                icon: "success",
+                title: 'Sala actualizada satisfactoriamente',
+                text: json.msg,
+              });
+        }catch(error){
+            Swal.fire({
+                icon: "error",
+                title: error.status,
+                text: error.message,
+              });
+        }
+    }
+}
+
+export const newTecnico=(nuevoTecnico)=>{
+    return async(dispatch)=>{
+        
+        try{
+            const tecnicoNuevo=await createNewTecnico(nuevoTecnico);
+            dispatch(addNewTecnico(tecnicoNuevo));
+            Swal.fire({
+                icon: "success",
+                title: 'Tecnico creado Satisfactoriamente',
+                text: tecnicoNuevo.nombre,
+              });
+        }catch(error){
+            Swal.fire({
+                icon: "error",
+                title: error.status,
+                text: error.message,
+              });
+        }
+    }
+}
+
+
+export const updateTecnico=(tecnico)=>{
+    return async(dispatch)=>{
+        
+        try{
+            const tecnicoCreado=await actualizarTecnico(tecnico);
+            dispatch(onUpdateTecnico(tecnicoCreado));
+            Swal.fire({
+                icon: "success",
+                title: 'Sala actualizada satisfactoriamente',
+                text: tecnicoCreado.nombre,
+              });
+        }catch(error){
+            Swal.fire({
+                icon: "error",
+                title: error.status,
+                text: error.message,
+              });
+        }
+    }
+}
+
+export const eliminarTecnico=(req)=>{
+    return async(dispatch)=>{
+        try{
+            const json=await borrarTecnico(req);
+            dispatch(onDeleteTecnico(req.id));
             Swal.fire({
                 icon: "success",
                 title: 'Sala actualizada satisfactoriamente',

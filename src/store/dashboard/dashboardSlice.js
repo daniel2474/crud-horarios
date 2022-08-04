@@ -23,14 +23,25 @@ export const dashboardSlice = createSlice({
         setTecnicos:(state,action)=>{
             state.tecnicos=action.payload;
         },
-        setSalas:(state,action)=>{
-            state.salas=action.payload;
+        addNewTecnico:(state,action)=>{
+            state.tecnicos.push(action.payload);
         },
-        setCollapsed:(state,action)=>{
-            state.collapsed=action.payload;
+        onUpdateTecnico:(state,{payload})=>{
+            state.tecnicos=state.tecnicos.map(tecnico=>{
+                if(tecnico.id===payload.id){
+                    return payload;
+                }
+                return tecnico;
+            })
+        },
+        onDeleteTecnico:(state,action)=>{
+            state.tecnicos=state.tecnicos.filter(tecnico=>tecnico.id!==action.payload);
         },
         addNewSala:(state,action)=>{
             state.salas.push(action.payload);
+        },
+        setSalas:(state,action)=>{
+            state.salas=action.payload;
         },
         onUpdateSala:(state,{payload})=>{
             state.salas=state.salas.map(sala=>{
@@ -41,8 +52,10 @@ export const dashboardSlice = createSlice({
             })
         },onDeleteSala:(state,action)=>{
             state.salas=state.salas.filter(sala=>sala.id!==action.payload);
-        }
-        
+        },
+        setCollapsed:(state,action)=>{
+            state.collapsed=action.payload;
+        }        
     }
 });
 
@@ -57,5 +70,8 @@ export const {
     setCollapsed,
     addNewSala,
     onUpdateSala,
-    onDeleteSala
+    onDeleteSala,
+    addNewTecnico,
+    onUpdateTecnico,
+    onDeleteTecnico
  } = dashboardSlice.actions;
