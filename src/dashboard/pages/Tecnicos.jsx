@@ -36,6 +36,7 @@ export const Tecnicos = () => {
     <> 
     <div className={collapsed?'principal-collapsed':'principal'}>
       <h1>Lista de tecnicos</h1>
+      <p className="">Tecnicos registrados : {s.length}</p>
       <button className="button-principal" onClick={onClickNewSala}>Crear Nuevo Tecnico</button>
       <form className="formulario animate__animated animate__backInLeft" hidden={formularioActive}  onSubmit={ onSubmit }
       style={{border: "2px solid rgb(205, 205, 205)",padding:'25px 25px 25px 25px',borderRadius:'5px',
