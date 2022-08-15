@@ -8,6 +8,7 @@ import { Menu } from '../pages/Menu';
 import { Actividades } from '../pages/Actividades';
 import { EditarSalaPage } from '../pages/EditarSalaPage';
 import { EditarTecnicoPage } from '../pages/EditarTecnicoPage';
+import { EditarActividadPage } from '../pages/EditarActividadPage';
 
 export const DashboardRoutes = () => {
   return (
@@ -24,6 +25,7 @@ export const DashboardRoutes = () => {
         <Route path='/CIM' element={<Salas club='CIMERA'/>}/>
         <Route path="/editarSala/:salaId" element={<EditarSalaPage />} />
         <Route path="/editarTecnico/:tecnicoId" element={<EditarTecnicoPage />} />
+        <Route path="/editarActividad/:actividadId" element={<EditarActividadPage />} />
         {/* <Route path="crearSala/:salaId" element={<EditarSalaPage />} /> */}
     </Routes>
     </>

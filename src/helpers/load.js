@@ -122,3 +122,60 @@ export const borrarTecnico=async(data)=>{
         console.error(err);
     }
 }
+
+
+
+export const createNewTipoActividad=async(data)=>{
+    try {
+        const resp = await axios.post('http://app.sportsplaza.mx/citas/crearTipoActividad',data,{
+            headers
+        });
+        return resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+}
+
+
+
+
+export const createNewActividad=async(data)=>{
+    try {
+        const resp = await axios.post('http://app.sportsplaza.mx/citas/crearActividad',data,{
+            headers
+        });
+        return resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+}
+
+
+
+export const actualizarActividad=async(data)=>{
+    try {
+        const resp = await axios.put('http://app.sportsplaza.mx/citas/actualizarActividad',data,{
+            headers
+        });
+        return resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+}
+
+
+
+export const borrarActividad=async(data)=>{
+    try {
+        const resp = await axios.post('http://app.sportsplaza.mx/citas/deleteActividad',data,{
+            headers
+        });
+        return resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+}

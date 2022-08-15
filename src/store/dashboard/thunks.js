@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
-import { actualizarSala, actualizarTecnico, borrarSala, borrarTecnico, createNewHorario, createNewSala, createNewTecnico, loadActividades, loadSalas, loadTecnicos } from "../../helpers/load";
-import { addNewSala, addNewTecnico, onDeleteSala, onDeleteTecnico, onUpdateSala, onUpdateTecnico, savedNewHorario, savingNewHorario, setActividades, setSalas, setTecnicos } from "./dashboardSlice";
+import { actualizarActividad, actualizarSala, actualizarTecnico, borrarActividad, borrarSala, borrarTecnico, createNewActividad, createNewHorario, createNewSala, createNewTecnico, createNewTipoActividad, loadActividades, loadSalas, loadTecnicos } from "../../helpers/load";
+import { addNewActividad, addNewSala, addNewTecnico, onDeleteActividad, onDeleteSala, onDeleteTecnico, onUpdateActividad, onUpdateSala, onUpdateTecnico, savedNewHorario, savingNewHorario, setActividades, setSalas, setTecnicos } from "./dashboardSlice";
 
 
 export const startNewHorario=(data)=>{
@@ -159,6 +159,70 @@ export const eliminarTecnico=(req)=>{
         try{
             const json=await borrarTecnico(req);
             dispatch(onDeleteTecnico(req.id));
+            Swal.fire({
+                icon: "success",
+                title: 'Sala actualizada satisfactoriamente',
+                text: json.msg,
+              });
+        }catch(error){
+            Swal.fire({
+                icon: "error",
+                title: error.status,
+                text: error.message,
+              });
+        }
+    }
+}
+
+
+export const newActividad=(nuevaActividad)=>{
+    return async(dispatch)=>{
+        
+        try{
+            const tipoActividadNueva=await createNewTipoActividad({nombre:nuevaActividad.nombre,color:nuevaActividad.color});
+            const actividadNueva=await createNewActividad({...nuevaActividad, tipoActividad:tipoActividadNueva.id});
+            dispatch(addNewActividad(actividadNueva));
+            Swal.fire({
+               icon: "success",
+               title: 'Actividad creada Satisfactoriamente',
+               text: actividadNueva.nombre,
+             });
+        }catch(error){
+            Swal.fire({
+                icon: "error",
+                title: error.status,
+                text: error.message,
+              });
+        }
+    }
+}
+
+export const updateActividad=(actividad)=>{
+    return async(dispatch)=>{
+        
+        try{
+            const actividadCreada=await actualizarActividad(actividad);
+            dispatch(onUpdateActividad(actividadCreada));
+            Swal.fire({
+                icon: "success",
+                title: 'Sala actualizada satisfactoriamente',
+                text: actividadCreada.nombre,
+              });
+        }catch(error){
+            Swal.fire({
+                icon: "error",
+                title: error.status,
+                text: error.message,
+              });
+        }
+    }
+}
+
+export const eliminarActividad=(req)=>{
+    return async(dispatch)=>{
+        try{
+            const json=await borrarActividad(req);
+            dispatch(onDeleteActividad(req.id));
             Swal.fire({
                 icon: "success",
                 title: 'Sala actualizada satisfactoriamente',

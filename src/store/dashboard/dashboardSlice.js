@@ -53,6 +53,20 @@ export const dashboardSlice = createSlice({
         },onDeleteSala:(state,action)=>{
             state.salas=state.salas.filter(sala=>sala.id!==action.payload);
         },
+        addNewActividad:(state,action)=>{
+            state.actividades.push(action.payload);
+        },
+        onUpdateActividad:(state,{payload})=>{
+            state.actividades=state.actividades.map(actividad=>{
+                if(actividad.id===payload.id){
+                    return payload;
+                }
+                return actividad;
+            })
+        },
+        onDeleteActividad:(state,action)=>{
+            state.actividades=state.actividades.filter(sala=>sala.id!==action.payload);
+        },
         setCollapsed:(state,action)=>{
             state.collapsed=action.payload;
         }        
@@ -73,5 +87,8 @@ export const {
     onDeleteSala,
     addNewTecnico,
     onUpdateTecnico,
-    onDeleteTecnico
+    onDeleteTecnico,
+    addNewActividad,
+    onUpdateActividad,
+    onDeleteActividad
  } = dashboardSlice.actions;
