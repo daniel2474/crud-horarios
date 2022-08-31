@@ -36,6 +36,7 @@ export default function Aside() {
           <SubMenu title="Horarios" icon={<MdSchedule/>}>
             <MenuItem>Crear Horario Nuevo <Link to="/crearHorario" /></MenuItem>
             <MenuItem>Actualizar Horario Existente <Link to="/actualizarHorario" /></MenuItem>
+            <MenuItem>Modificar Horario Fitness <Link to="/horarioFitness" /></MenuItem>
            </SubMenu>
             <MenuItem icon={<FaRunning/>}>Actividades <Link to="/actividades" /></MenuItem>
             <MenuItem icon={<BsPeople/>}>Tecnicos <Link to="/tecnicos" /></MenuItem>

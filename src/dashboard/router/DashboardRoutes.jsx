@@ -9,6 +9,7 @@ import { Actividades } from '../pages/Actividades';
 import { EditarSalaPage } from '../pages/EditarSalaPage';
 import { EditarTecnicoPage } from '../pages/EditarTecnicoPage';
 import { EditarActividadPage } from '../pages/EditarActividadPage';
+import { HorarioFitness } from '../pages/HorarioFitness';
 
 export const DashboardRoutes = () => {
   return (
@@ -26,6 +27,7 @@ export const DashboardRoutes = () => {
         <Route path="/editarSala/:salaId" element={<EditarSalaPage />} />
         <Route path="/editarTecnico/:tecnicoId" element={<EditarTecnicoPage />} />
         <Route path="/editarActividad/:actividadId" element={<EditarActividadPage />} />
+        <Route path="/horarioFitness" element={<HorarioFitness />} />
         {/* <Route path="crearSala/:salaId" element={<EditarSalaPage />} /> */}
     </Routes>
     </>
