@@ -27,7 +27,7 @@ export const EditarTecnicoPage = () => {
   return (
     <div className={collapsed?'principal-collapsed':'principal'}>
     <button onClick={handleReturn} className="button-principal" style={{marginTop:'50px',color:'#88BBF3',border: "2px solid #88BBF3"}}>Regresar</button>
-      <form className="formulario animate__animated animate__backInLeft"  onSubmit={ onSubmit }
+      <form className="formulario animate__animated animate__fadeIn"  onSubmit={ onSubmit }
       style={{border: "2px solid rgb(205, 205, 205)",padding:'25px 25px 25px 25px',borderRadius:'5px',
       boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2)',width:collapsed?'500%':'425%',transitionDuration:'0.4s'}} >
         <h1>Editar Tecnico</h1>

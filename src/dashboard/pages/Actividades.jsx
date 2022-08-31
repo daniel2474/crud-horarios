@@ -41,7 +41,7 @@ export const Actividades = () => {
     <div className={collapsed?'principal-collapsed':'principal'}>
       <h1>Lista de Actividades</h1>
       <button className="button-principal" onClick={onClickNewSala}>Crear Nueva Actividad</button>
-      <form className="formulario animate__animated animate__backInLeft" hidden={formularioActive}  onSubmit={ onSubmit }
+      <form className="formulario animate__animated animate__fadeIn" hidden={formularioActive}  onSubmit={ onSubmit }
       style={{border: "2px solid rgb(205, 205, 205)",padding:'25px 25px 25px 25px',borderRadius:'5px',
       boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2)'}} >
         <h1>Llene los campos para crear una nueva actividad</h1>
@@ -60,10 +60,10 @@ export const Actividades = () => {
             
         <button type="submit" className="button-principal"  >Crear</button>
       </form>
-      <div className="cards">
+      <div className="cards ">
     {
       s.map(actividad=>(
-          <div key={actividad.id}className="card"  style={{border: "3px solid #"+actividad.tipoActividad.color,borderRadius:'5px'}}>
+          <div key={actividad.id}className="card animate__animated animate__fadeIn"  style={{border: "3px solid #"+actividad.tipoActividad.color,borderRadius:'5px'}}>
           <div className="container">
             <h3 >{actividad.nombre}</h3>
             <h4 >{actividad.segmentacion?'Cancha':'Actividad'} con cupo : {actividad.max}</h4>    

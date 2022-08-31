@@ -54,7 +54,7 @@ export const Salas = ({club}) => {
       <h1 className="">Salas de {club}</h1>
       <p className="">Salas registradas en este club: {s.length}</p>
       <button className="button-principal" onClick={onClickNewSala}>Crear Nueva Sala</button>
-      <form className="formulario animate__animated animate__backInLeft" hidden={formularioActive}  onSubmit={ onSubmit }
+      <form className="formulario animate__animated animate__fadeIn" hidden={formularioActive}  onSubmit={ onSubmit }
       style={{border: "2px solid rgb(205, 205, 205)",padding:'25px 25px 25px 25px',borderRadius:'5px',
       boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2)'}} >
         <h1>Llene los campos para crear una nueva sala</h1>
@@ -64,7 +64,7 @@ export const Salas = ({club}) => {
       <div className="cards">
     {
       s.map(sala=>(
-          <div key={sala.id}className="card animate__animated animate__backInUp">
+          <div key={sala.id}className="card animate__animated animate__fadeIn">
           <div className="container">
             <h4><b>{sala.nombre}</b></h4>
             <Link className="button"  to={"/editarSala/"+sala.id}><MdOutlineModeEdit/> </Link>
