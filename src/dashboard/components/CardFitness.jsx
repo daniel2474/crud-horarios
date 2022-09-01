@@ -4,16 +4,16 @@ export const CardFitness = ({card}) => {
   return (
     <div  className="card-fitness animate__animated animate__fadeIn" 
             style={{ border: '2px solid #'+card.color}}>
-        <div >
-            <h4>{card.nombre}</h4>
-            <h5>{card.lugar}</h5>
-            <h6>{card.tecnico}</h6>
-            <h6>{card.cupo_actual}/{card.cupo_maximo}</h6>
-            <h6>{card.rango}</h6>
+        <button  style={{backgroundColor:'white',border:'none'}}>
+            <div className='tag-title' style={{ color: '#'+card.color}}>{card.nombre}</div>
+            <div className='tag-sala'>{card.lugar}</div>
+            <div  className='tag-instructor'>{card.tecnico}</div>
+            <div  className='tag-instructor'>{card.cupo_actual}/{card.cupo_maximo}</div>
+            <div  className='tag-instructor'>{card.rango}</div>
             {/* <Link className="button"  to={"/editarSala/"+dia.id}><MdOutlineModeEdit/> </Link> */}
             {/* <button className="button" >Editar</button> */}
             {/* <button  className="button-eliminar" onClick={() => deleteSala(dia.id)} ><MdOutlineDeleteOutline/></button> */}
-        </div>
+        </button>
     </div>
   )
 }

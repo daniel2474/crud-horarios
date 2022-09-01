@@ -309,3 +309,22 @@ textarea {
 .container {
   padding: 2px 16px;
 }
+.tag-title {
+	font-family: 'Roboto Slab', serif;	
+	font-size  : 15px;
+	font-weight: 700;
+  margin-bottom: 10px;
+}
+.tag-sala {
+	font-family: 'Roboto Slab', serif;	
+	font-size  : 12px;
+	font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.tag-instructor {
+	font-family: 'Roboto Slab', serif;	
+	font-size  : 12px;
+	font-weight: 500;
+  margin-bottom: 10px;
+}

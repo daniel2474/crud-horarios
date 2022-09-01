@@ -37,7 +37,7 @@ export const HorarioFitness = () => {
             <h1>Horarios Fitness</h1>
             <form >
                 <input type="text" placeholder="Selecciones el club" />
-                <button type="submit" className="button-principal"  >Actualizar</button>
+                <button type="submit" className="button-principal"  >Filtrar</button>
             </form>
             <div className="cards-fitness-grid">
                 {/* <button onClick={semanaAnterior}>Semana anterior
@@ -45,7 +45,9 @@ export const HorarioFitness = () => {
                 
                 
                 </button> */}
-                <div>Lunes 
+                <div>
+                    <div style={{  border: '2px solid rgb(205, 205, 205)',textAlign:'center',borderRadius:'5px'
+                    ,boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2)'}}>Lunes</div> 
                 {/* CARD FITNESS */}
                 {
                     isLoading?(
@@ -57,7 +59,9 @@ export const HorarioFitness = () => {
                     
                 }
                 </div>
-                <div>Martes
+                <div >
+                    <div style={{  border: '2px solid rgb(205, 205, 205)',textAlign:'center',borderRadius:'5px'
+                    ,boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2)'}}>Martes</div>
                 
                 {
                     isLoading?(
@@ -72,7 +76,9 @@ export const HorarioFitness = () => {
                 
                 </div>
                 
-                <div>Miercoles
+                <div>
+                    <div style={{  border: '2px solid rgb(205, 205, 205)',textAlign:'center',borderRadius:'5px'
+                    ,boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2)'}}>Miercoles</div>
                 {
                     isLoading?(
                         <h1>Cargando...</h1>
@@ -84,7 +90,9 @@ export const HorarioFitness = () => {
                     
                 }
                 </div>
-                <div>Jueves
+                <div>
+                    <div style={{  border: '2px solid rgb(205, 205, 205)',textAlign:'center',borderRadius:'5px'
+                    ,boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2)'}}>Jueves</div>
                 {
                     isLoading?(
                         <h1>Cargando...</h1>
@@ -96,7 +104,9 @@ export const HorarioFitness = () => {
                     
                 }
                 </div>
-                <div>Viernes
+                <div>
+                    <div style={{  border: '2px solid rgb(205, 205, 205)',textAlign:'center',borderRadius:'5px'
+                    ,boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2)'}}>Viernes</div>
                 {
                     isLoading?(
                         <h1>Cargando...</h1>
@@ -108,7 +118,9 @@ export const HorarioFitness = () => {
                     
                 }
                 </div>
-                <div>Sabado
+                <div>
+                    <div style={{  border: '2px solid rgb(205, 205, 205)',textAlign:'center',borderRadius:'5px'
+                    ,boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2)'}}>Sabado</div>
                 {
                     isLoading?(
                         <h1>Cargando...</h1>
@@ -120,7 +132,9 @@ export const HorarioFitness = () => {
                     
                 }
                 </div>
-                <div>Domingo
+                <div>
+                    <div style={{  border: '2px solid rgb(205, 205, 205)',textAlign:'center',borderRadius:'5px'
+                    ,boxShadow:'0 4px 8px 0 rgba(0,0,0,0.2)'}}>Domingo</div>
                 {
                     isLoading?(
                         <h1>Cargando...</h1>
