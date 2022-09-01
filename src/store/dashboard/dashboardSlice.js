@@ -3,11 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 export const dashboardSlice = createSlice({
     name: 'dashboard',
     initialState: {
-        isSaving:false,
+        isLoading:false,
         message:'',
         actividades:[],
         tecnicos:[],
         salas:[],
+        horario:[],
         collapsed:false
     },
     reducers: {
@@ -69,7 +70,16 @@ export const dashboardSlice = createSlice({
         },
         setCollapsed:(state,action)=>{
             state.collapsed=action.payload;
-        }        
+        },
+        onAddDiaHorario:(state,action)=>{
+            state.horario=state.horario.concat(action.payload);
+        },
+        onLimpiarHorario:(state)=>{
+            state.horario=[];
+        },      
+        setLoading:(state,action)=>{
+            state.isLoading=action.payload;
+        }  
     }
 });
 
@@ -90,5 +100,8 @@ export const {
     onDeleteTecnico,
     addNewActividad,
     onUpdateActividad,
-    onDeleteActividad
+    onDeleteActividad,
+    onAddDiaHorario,
+    onLimpiarHorario,
+    setLoading
  } = dashboardSlice.actions;

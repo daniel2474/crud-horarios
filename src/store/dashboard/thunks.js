@@ -1,6 +1,7 @@
+import moment from "moment";
 import Swal from "sweetalert2";
-import { actualizarActividad, actualizarSala, actualizarTecnico, borrarActividad, borrarSala, borrarTecnico, createNewActividad, createNewHorario, createNewSala, createNewTecnico, createNewTipoActividad, loadActividades, loadSalas, loadTecnicos } from "../../helpers/load";
-import { addNewActividad, addNewSala, addNewTecnico, onDeleteActividad, onDeleteSala, onDeleteTecnico, onUpdateActividad, onUpdateSala, onUpdateTecnico, savedNewHorario, savingNewHorario, setActividades, setSalas, setTecnicos } from "./dashboardSlice";
+import { actualizarActividad, actualizarSala, actualizarTecnico, borrarActividad, borrarSala, borrarTecnico, createNewActividad, createNewHorario, createNewSala, createNewTecnico, createNewTipoActividad, loadActividades, loadHorario, loadSalas, loadTecnicos } from "../../helpers/load";
+import { addNewActividad, addNewSala, addNewTecnico, onAddDiaHorario, onDeleteActividad, onDeleteSala, onDeleteTecnico, onUpdateActividad, onUpdateSala, onUpdateTecnico, savedNewHorario, savingNewHorario, setActividades, setLoading, setSalas, setTecnicos } from "./dashboardSlice";
 
 
 export const startNewHorario=(data)=>{
@@ -228,6 +229,38 @@ export const eliminarActividad=(req)=>{
                 title: 'Sala actualizada satisfactoriamente',
                 text: json.msg,
               });
+        }catch(error){
+            Swal.fire({
+                icon: "error",
+                title: error.status,
+                text: error.message,
+              });
+        }
+    }
+}
+
+export const loadHorarioInicial=(dia,club)=>{
+    return async(dispatch)=>{
+        
+        try{
+            let  day = dia.clone();
+            dispatch(setLoading(true));
+            const lunes=await loadHorario(day.format('YYYY-MM-DD'),club);
+            dispatch(onAddDiaHorario(lunes));
+            const martes=await loadHorario(day.add(1,'day').format('YYYY-MM-DD'),club);
+            dispatch(onAddDiaHorario(martes));
+            const miercoles=await loadHorario(day.add(1,'day').format('YYYY-MM-DD'),club);
+            dispatch(onAddDiaHorario(miercoles));
+            const jueves=await loadHorario(day.add(1,'day').format('YYYY-MM-DD'),club);
+            dispatch(onAddDiaHorario(jueves));
+            const viernes=await loadHorario(day.add(1,'day').format('YYYY-MM-DD'),club);
+            dispatch(onAddDiaHorario(viernes));
+            const sabado=await loadHorario(day.add(1,'day').format('YYYY-MM-DD'),club);
+            dispatch(onAddDiaHorario(sabado));
+            const domingo=await loadHorario(day.add(1,'day').format('YYYY-MM-DD'),club);
+            dispatch(onAddDiaHorario(domingo));
+            dispatch(setLoading(false));
+            
         }catch(error){
             Swal.fire({
                 icon: "error",

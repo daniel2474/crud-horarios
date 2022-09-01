@@ -268,11 +268,11 @@ textarea {
   margin-top:  50px ;
    
   }
-.cardsFitness {
+.cards-fitness-grid {
   width: 100%;
   display: grid;
   
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   
   grid-auto-rows: auto;
   
@@ -280,6 +280,16 @@ textarea {
   margin-top:  50px ;
 }
 
+.card-fitness {
+  /* border: 2px solid rgb(35, 34, 34); */
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  margin: 15px 0px 15px 0px;
+}
 .card {
   /* border: 2px solid rgb(35, 34, 34); */
   /* Add shadows to create the "card" effect */
@@ -287,6 +297,7 @@ textarea {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   text-align: center;
+  margin: 0px 0px 25px 0px;
 }
 
 /* On mouse-over, add a deeper shadow */

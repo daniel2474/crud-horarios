@@ -179,3 +179,16 @@ export const borrarActividad=async(data)=>{
         console.error(err);
     }
 }
+
+
+export const loadHorario=async(dia,club)=>{
+    try {
+        const resp = await axios.get(`http://app.sportsplaza.mx/citas/obtenerClasesFitness?dia=${dia}&club=${club}`,{
+            headers
+        });
+        return resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+}
