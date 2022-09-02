@@ -26,3 +26,8 @@ export const crearSalas =(array=[])=>{
     const s = options.sort(SortOptions);
     return s;
 }
+
+export const opcionesByClub=()=>{
+    return [{value:'Club Alpha 2',label:'Club Alpha 2'},{value:'Club Alpha 3',label:'Club Alpha 3'},
+                {value:'Sports Plaza',label:'Sports Plaza'},{value:'CIMERA',label:'CIMERA'}]
+}

@@ -290,6 +290,11 @@ textarea {
   padding: 5px 5px 5px 5px;
   margin: 15px 0px 15px 0px;
 }
+
+/* On mouse-over, add a deeper shadow */
+.card-fitness:hover {
+  box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.2);
+}
 .card {
   /* border: 2px solid rgb(35, 34, 34); */
   /* Add shadows to create the "card" effect */
