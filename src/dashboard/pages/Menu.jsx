@@ -10,12 +10,14 @@ import { Input } from "../components/Input";
 
 
 export const Menu=()=> {
-    const [selectedActividad, setSelectedActividad] = useState(null);
-    const [selectedTecnico, setSelectedTecnico] = useState(null);
-    const [selectedSala, setSelectedSala] = useState(null);
 
     const { actividades,tecnicos,salas,isSaving } = useSelector( state => state.dashboard );
     const dispatch=useDispatch();
+
+    
+    const [selectedActividad, setSelectedActividad] = useState(null);
+    const [selectedTecnico, setSelectedTecnico] = useState(null);
+    const [selectedSala, setSelectedSala] = useState(null);
 
     const opcionesActividades=crearActividades(actividades);
     const opcionesTecnicos=crearTecnico(tecnicos);
