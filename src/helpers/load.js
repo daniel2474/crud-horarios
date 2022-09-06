@@ -192,3 +192,15 @@ export const loadHorario=async(dia,club)=>{
         console.error(err);
     }
 }
+
+export const editarHorario=async(data)=>{
+    try {
+        const resp = await axios.post('http://app.sportsplaza.mx/citas/modificarHorario',data,{
+            headers
+        });
+        return resp.data;
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+}

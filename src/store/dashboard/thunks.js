@@ -1,7 +1,7 @@
 import moment from "moment";
 import Swal from "sweetalert2";
-import { actualizarActividad, actualizarSala, actualizarTecnico, borrarActividad, borrarSala, borrarTecnico, createNewActividad, createNewHorario, createNewSala, createNewTecnico, createNewTipoActividad, loadActividades, loadHorario, loadSalas, loadTecnicos } from "../../helpers/load";
-import { addNewActividad, addNewSala, addNewTecnico, onAddDiaHorario, onDeleteActividad, onDeleteSala, onDeleteTecnico, onUpdateActividad, onUpdateSala, onUpdateTecnico, savedNewHorario, savingNewHorario, setActividades, setLoading, setSalas, setTecnicos } from "./dashboardSlice";
+import { actualizarActividad, actualizarSala, actualizarTecnico, borrarActividad, borrarSala, borrarTecnico, createNewActividad, createNewHorario, createNewSala, createNewTecnico, createNewTipoActividad, editarHorario, loadActividades, loadHorario, loadSalas, loadTecnicos } from "../../helpers/load";
+import { actualizarHorario, addNewActividad, addNewSala, addNewTecnico, onAddDiaHorario, onDeleteActividad, onDeleteSala, onDeleteTecnico, onUpdateActividad, onUpdateSala, onUpdateTecnico, savedNewHorario, savingNewHorario, setActividades, setLoading, setSalas, setTecnicos } from "./dashboardSlice";
 
 
 export const startNewHorario=(data)=>{
@@ -261,6 +261,28 @@ export const loadHorarioInicial=(dia,club)=>{
             dispatch(onAddDiaHorario(domingo));
             dispatch(setLoading(false));
             
+        }catch(error){
+            Swal.fire({
+                icon: "error",
+                title: error.status,
+                text: error.message,
+              });
+        }
+    }
+}
+
+
+export const onEditarHorario=(horario)=>{
+    return async(dispatch)=>{
+        
+        try{
+            const horarioModificado=await editarHorario(horario);
+           dispatch(actualizarHorario(horarioModificado));
+            Swal.fire({
+                icon: "success",
+                title: 'Horario Modificado exitosamente',
+                text: horarioModificado.actividad.nombre,
+              });
         }catch(error){
             Swal.fire({
                 icon: "error",

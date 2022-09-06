@@ -9,7 +9,8 @@ export const dashboardSlice = createSlice({
         tecnicos:[],
         salas:[],
         horario:[],
-        collapsed:false
+        collapsed:false,
+        active:null
     },
     reducers: {
         savingNewHorario:(state)=>{
@@ -73,12 +74,43 @@ export const dashboardSlice = createSlice({
         },
         onAddDiaHorario:(state,action)=>{
             state.horario=state.horario.concat(action.payload);
+        },        
+        actualizarHorario:(state,{payload})=>{
+            state.horario=state.horario.map(clase=>{
+                if(clase.id===payload.id){
+                    return {
+                        id:payload.id,
+                        nombre:payload.actividad.nombre,
+                        tecnico:payload.tecnico.nombre,
+                        tipoActividad:payload.actividad.tipoActividad.nombre,
+                        color:payload.actividad.tipoActividad.color,
+                        lugar:payload.sala.nombre,
+                        duracion:payload.duracion,
+                        nivel:payload.actividad.dificultad,
+                        hora:payload.hora,
+                        cupo_actual:clase.cupo_actual,
+                        cupo_maximo:payload.actividad.max,
+                        rango:payload.rango,
+                        dia:clase.dia,
+                        disponible:true,
+                        paga:payload.actividad.paga,
+                        idApartados:clase.idApartados
+                    };
+                }
+                return clase;
+            })
         },
         onLimpiarHorario:(state)=>{
             state.horario=[];
         },      
         setLoading:(state,action)=>{
             state.isLoading=action.payload;
+        },
+        onLimpiarActive:(state)=>{
+            state.active=null
+        },
+        setActive:(state,action)=>{
+            state.active=action.payload;
         }  
     }
 });
@@ -103,5 +135,8 @@ export const {
     onDeleteActividad,
     onAddDiaHorario,
     onLimpiarHorario,
-    setLoading
+    setLoading,
+    onLimpiarActive,
+    setActive,
+    actualizarHorario
  } = dashboardSlice.actions;
