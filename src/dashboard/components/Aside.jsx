@@ -13,16 +13,15 @@ import {BsPeople,BsArrowRightCircleFill,BsArrowLeftCircleFill} from "react-icons
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCollapsed } from "../../store/dashboard/dashboardSlice";
+import { useAuthStore } from "../../hooks/useAuthStore";
 
 export default function Aside() {
   const {collapsed}=useSelector(state=>state.dashboard);
+  const { startLogout }=useAuthStore();
   const dispatch=useDispatch();
     const navigate=useNavigate();
     const handleLogout=()=>{
-        //dispatch({type: types.logout});
-        navigate('/auth/login',{
-            replace:true
-          });
+      startLogout();
     }
     const onCollapsed=()=>{
         dispatch(setCollapsed(!collapsed));

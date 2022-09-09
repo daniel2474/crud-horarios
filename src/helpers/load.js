@@ -1,8 +1,9 @@
 import axios from "axios";
 
+
 const headers = {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiAkMmEkMTAkbEY5MG1nRkx2eC5lOVcvSnhvbUduZUZEL3hzNG80N2l6YUJlTG5TUGdhbTFMRWUvZXd5eC4ifQ.sbHcP0IfdNJ219L5uY_AOQFJS9AQtG5Ww0yTEWZ6n5O_jyiPYBRm3ZsnulJSZ2qDHGkjwMrUOZ2g8NG8fWr1bA`
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
   }
 export const loadActividades=async()=>{
     try {

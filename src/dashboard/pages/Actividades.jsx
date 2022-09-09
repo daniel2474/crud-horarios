@@ -30,7 +30,15 @@ export const Actividades = () => {
 
   const onSubmit=(event)=>{
     event.preventDefault();
-    dispatch(newActividad({nombre,dificultad,paga,max:cupo,segmentacion:actividad,color:color.replace('#',''),sobreescribir:fitness}));
+    dispatch(newActividad({
+      nombre:nombre.toUpperCase().trim() ,
+      dificultad:dificultad.trim(),
+      paga,
+      max:cupo,
+      segmentacion:actividad,
+      color:color.replace('#',''),
+      sobreescribir:fitness
+    }));
   }
   
   const deleteActividad=(id)=>{

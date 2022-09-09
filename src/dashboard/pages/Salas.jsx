@@ -42,7 +42,7 @@ export const Salas = ({club}) => {
         idClub=5;
         break;
     }
-    dispatch(newSala({nombre:nombre.toUpperCase() ,club:idClub}));
+    dispatch(newSala({nombre:nombre.toUpperCase().trim() ,club:idClub}));
   }
   const deleteSala=(id)=>{
     dispatch(eliminarSala({id}));

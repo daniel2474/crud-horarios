@@ -3,7 +3,7 @@ import { SortOptions } from "./ordenarArray";
 export const crearActividades =(array=[])=>{
     const options=[];
     array.forEach(item => {
-        options.push({value:item.id,label:item.nombre+" - Cupo:"+item.max});
+        options.push({value:item.id,label:item.nombre+" - Cupo:"+item.max,color:'#'+item.tipoActividad.color});
     });
     const s = options.sort(SortOptions);
     return s;   

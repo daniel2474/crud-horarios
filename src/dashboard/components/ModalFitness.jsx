@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Select from 'react-select';
 import Swal from "sweetalert2";
 import { crearActividades, crearSalas, crearTecnico } from "../../helpers/crearOpciones";
+import { colourStyles } from "../../helpers/styleOptions";
 import { useForm } from "../../hooks/useForm";
 import { onLimpiarActive } from "../../store/dashboard/dashboardSlice";
 import { onEditarHorario } from "../../store/dashboard/thunks";
@@ -104,7 +105,8 @@ export const ModalFitness = () => {
               defaultValue={selectedActividad}
               onChange={setSelectedActividad}
               options={opcionesActividades}    
-              placeholder={active?.nombre +" - Cupo:"+active?.cupo_maximo}            
+              placeholder={active?.nombre +" - Cupo:"+active?.cupo_maximo}     
+              styles={colourStyles}       
           />
           <Select className="Select" 
               defaultValue={selectedTecnico}
@@ -129,14 +131,15 @@ export const ModalFitness = () => {
           >
               <span> Guardar</span>
           </button>
+          
+
+          </form>
           <button
             onClick={closeModal}
             className="button-eliminar"
           >
               <span> Cancelar</span>
           </button>
-
-          </form>
     </Modal>
       )
 }

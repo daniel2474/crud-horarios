@@ -20,7 +20,7 @@ export const EditarTecnicoPage = () => {
     }
     const onSubmit=(event)=>{      
       event.preventDefault();
-      dispatch(updateTecnico({id:tecnico.id,nombre}));
+      dispatch(updateTecnico({id:tecnico.id,nombre:nombre.toUpperCase().trim()}));
       navigate(-1);
     }
     

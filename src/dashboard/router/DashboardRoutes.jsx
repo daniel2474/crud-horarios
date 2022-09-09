@@ -10,8 +10,19 @@ import { EditarSalaPage } from '../pages/EditarSalaPage';
 import { EditarTecnicoPage } from '../pages/EditarTecnicoPage';
 import { EditarActividadPage } from '../pages/EditarActividadPage';
 import { HorarioFitness } from '../pages/HorarioFitness';
+import { startLoadingActividades, startLoadingSalas, startLoadingTecnicos } from '../../store/dashboard/thunks';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 export const DashboardRoutes = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(startLoadingActividades());
+    dispatch(startLoadingTecnicos());
+    dispatch(startLoadingSalas());
+    
+  }, []);
   return (
     <>
     <Aside />

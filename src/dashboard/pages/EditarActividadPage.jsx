@@ -22,7 +22,16 @@ export const EditarActividadPage = () => {
     }
     const onSubmit=(event)=>{      
       event.preventDefault();
-      dispatch(updateActividad({id:actividadInd.id,nombre,dificultad,max:cupo,paga,segmentacion:actividad,sobreescribir:fitness,tipoActividad:{color:color.replace('#','')}}));
+      dispatch(updateActividad({
+        id:actividadInd.id,
+        nombre:nombre.toUpperCase().trim(),
+        dificultad:dificultad.trim(),
+        max:cupo,
+        paga,
+        segmentacion:actividad,
+        sobreescribir:fitness,
+        tipoActividad:{color:color.replace('#','')}
+      }));
       navigate(-1);
     }
     

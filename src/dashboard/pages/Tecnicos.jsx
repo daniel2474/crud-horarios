@@ -27,7 +27,7 @@ export const Tecnicos = () => {
 
   const onSubmit=(event)=>{
     event.preventDefault();
-    dispatch(newTecnico({nombre}));
+    dispatch(newTecnico({nombre:nombre.toUpperCase().trim()}));
   }
   const deleteTecnico=(id)=>{
     dispatch(eliminarTecnico({id}));

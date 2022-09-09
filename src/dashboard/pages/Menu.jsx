@@ -7,6 +7,7 @@ import { crearActividades, crearSalas, crearTecnico } from "../../helpers/crearO
 import { startNewHorario } from "../../store/dashboard/thunks";
 import moment from "moment";
 import { Input } from "../components/Input";
+import { colourStyles } from "../../helpers/styleOptions";
 
 
 export const Menu=()=> {
@@ -108,6 +109,7 @@ export const Menu=()=> {
                 defaultValue={selectedActividad}
                 onChange={setSelectedActividad}
                 options={opcionesActividades}
+                styles={colourStyles}
                 
             />
             <Select className="Select"

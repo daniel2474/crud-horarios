@@ -26,7 +26,11 @@ export const EditarSalaPage = () => {
     }
     const onSubmit=(event)=>{      
       event.preventDefault();
-      dispatch(updateSala({id:sala.id,nombre,idClub:selectedSala.value}));
+      dispatch(updateSala({
+        id:sala.id,
+        nombre:nombre.toUpperCase().trim(),
+        idClub:selectedSala.value
+      }));
       navigate(-1);
     }
     
